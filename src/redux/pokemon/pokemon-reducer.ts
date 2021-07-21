@@ -7,10 +7,10 @@ type PokemonsStateType = {
   getPokemonsError: any;
   getPokemonsSucces: boolean;
 
-  pokemonDetails: any;
-  isGettingPokemonDetails: boolean;
-  getPokemonDetailsError: any;
-  getPokemonDetailsSucces: boolean;
+  pokemonInfo: any;
+  isGettingPokemonInfo: boolean;
+  getPokemonInfoError: any;
+  getPokemonInfoSucces: boolean;
 };
 
 type ActionType = {
@@ -20,15 +20,15 @@ type ActionType = {
 
 export const PokemonsInitialState = {
   pokemons: [],
-  generation: 0,
+  generation: 1,
   isGettingPokemons: false,
   getPokemonsError: null,
   getPokemonsSucces: false,
 
-  pokemonDetails: {},
-  isGettingPokemonDetails: false,
-  getPokemonDetailsError: null,
-  getPokemonDetailsSucces: false
+  pokemonInfo: {},
+  isGettingPokemonInfo: false,
+  getPokemonInfoError: null,
+  getPokemonInfoSucces: false
 };
 
 const pokemonReducer = (

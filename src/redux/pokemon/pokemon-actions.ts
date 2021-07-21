@@ -11,23 +11,23 @@ export const getPokemonsError = (message: string) => ({
   payload: message
 });
 
+export const getPokemonsSuccess = (pokemons: [any]) => ({
+  type: PokemonTypes.GET_POKEMONS_SUCCESS,
+  payload: pokemons
+});
+
 export function getPokemons(generation: number) {
   return async function getPokemonsThunk(dispatch: Function) {
     dispatch(getPokemonsRequest());
     try {
       const response = await getPokemonsByGeneration(generation);
 
-      return dispatch(getPokemonsSuccess(response));
+      return dispatch(getPokemonsSuccess(response.data.pokemon_species));
     } catch (error) {
-      dispatch(getPokemonsError(error.message));
+      return dispatch(getPokemonsError(error.message));
     }
   };
 }
-
-export const getPokemonsSuccess = (pokemons: [any]) => ({
-  type: PokemonTypes.GET_POKEMONS_SUCCESS,
-  payload: pokemons
-});
 
 export const getPokemonsReset = () => ({
   type: PokemonTypes.GET_POKEMONS_RESET
@@ -38,33 +38,32 @@ export const setGeneration = (generation: number) => ({
   payload: generation
 });
 
-export const getMemeInfoRequest = () => ({
+export const getPokemonInfoRequest = () => ({
   type: PokemonTypes.GET_POKEMON_INFO_REQUEST
 });
 
-export const getMemeInfoError = (message: string) => ({
+export const getPokemonInfoError = (message: string) => ({
   type: PokemonTypes.GET_POKEMON_INFO_ERROR,
   payload: message
 });
 
-export function getMemeInfo(name: string) {
-  return async function getMemeInfoThunk(dispatch: Function) {
-    dispatch(getMemeInfoRequest());
-    try {
-      const response = await getPokemonByName(name);
-
-      return dispatch(getMemeInfoSuccess(response));
-    } catch (error) {
-      dispatch(getMemeInfoError(error.message));
-    }
-  };
-}
-
-export const getMemeInfoSuccess = (pokemonInfo: {}) => ({
+export const getPokemonInfoSuccess = (pokemonInfo: {}) => ({
   type: PokemonTypes.GET_POKEMON_INFO_SUCCESS,
   payload: pokemonInfo
 });
 
-export const getMemeInfoReset = () => ({
+export function getPokemonInfo(name: string) {
+  return async function getPokemonInfoThunk(dispatch: Function) {
+    dispatch(getPokemonInfoRequest());
+    try {
+      const response = await getPokemonByName(name);
+      return dispatch(getPokemonInfoSuccess(response.data));
+    } catch (error) {
+      return dispatch(getPokemonInfoError(error.message));
+    }
+  };
+}
+
+export const getPokemonInfoReset = () => ({
   type: PokemonTypes.GET_POKEMON_INFO_RESET
 });

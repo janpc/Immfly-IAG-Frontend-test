@@ -1,4 +1,4 @@
-import { get } from './api-utils';
+import get from './api-utils';
 
 export function getPokemonsByGeneration(generation: number = 1): Promise<any> {
   return get(`generation/${generation}`);
