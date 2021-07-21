@@ -5,16 +5,18 @@ import {
   Route,
   Redirect
 } from 'react-router-dom';
+import PokemonDetails from './pages/PokemonDetail';
+import PokemonList from './pages/PokemonList';
 
 export default function App() {
   return (
     <Router>
       <Switch>
         <Route path="/pokemon/:name">
-          <p>pokemon</p>
+          <PokemonDetails />
         </Route>
         <Route path="/pokemon">
-          <p>list</p>
+          <PokemonList />
         </Route>
         <Route path="/">
           <Redirect to="/pokemon" />
