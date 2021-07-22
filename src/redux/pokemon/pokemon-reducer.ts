@@ -1,7 +1,7 @@
 import * as PokemonTypes from './pokemon-types';
 
 type PokemonsStateType = {
-  pokemons: any;
+  generations: any[];
   generation: number;
   isGettingPokemons: boolean;
   getPokemonsError: any;
@@ -19,7 +19,7 @@ type ActionType = {
 };
 
 export const PokemonsInitialState = {
-  pokemons: [],
+  generations: [],
   generation: 1,
   isGettingPokemons: false,
   getPokemonsError: null,
@@ -57,7 +57,11 @@ const pokemonReducer = (
         getPokemonsSucces: true,
         isGettingPokemons: false,
         getPokemonsError: null,
-        pokemons: action.payload
+        generations: [
+          ...state.generations,
+          { number: state.generation, pokemons: action.payload }
+        ],
+        generation: state.generation + 1
       };
     }
     case PokemonTypes.GET_POKEMONS_RESET: {

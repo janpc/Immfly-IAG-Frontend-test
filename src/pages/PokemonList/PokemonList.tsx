@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useInView } from 'react-intersection-observer';
+
+import PokemonListByGeneration from '../../components/PokemonListByGeneration';
 
 import {
   getPokemons,
@@ -11,32 +13,30 @@ import { pokemonSelector } from '../../redux/pokemon/pokemon-selectors';
 export default function PokemonDetails() {
   const dispatch = useDispatch();
 
-  const { pokemons, isGettingPokemons, getPokemonsError, generation } =
+  const { generations, isGettingPokemons, getPokemonsError, generation } =
     useSelector(pokemonSelector);
+  const { ref, inView } = useInView();
 
   useEffect(() => {
     dispatch(getPokemonInfoReset());
   }, []);
 
   useEffect(() => {
-    if (pokemons.length === 0) {
+    if (inView) {
       dispatch(getPokemons(generation));
     }
-  }, [dispatch, generation]);
+  }, [dispatch, inView]);
 
   return (
     <>
-      {isGettingPokemons && <p>loading...</p>}
-      {getPokemonsError && <p>{getPokemonsError}</p>}
-      {pokemons.map((pokemon: { id: number; name: string; url: string }) => (
-        <Link to={`/pokemon/${pokemon.name}`}>
-          <img
-            alt={pokemon.name}
-            src={`https://img.pokemondb.net/sprites/black-white/anim/normal/${pokemon.name}.gif`}
-            loading="lazy"
-          />
-        </Link>
-      ))}
+      {generations &&
+        generations.map((g: { number: number; pokemons: any[] }) => (
+          <PokemonListByGeneration key={g.number} generation={g} />
+        ))}
+      <div ref={ref}>
+        {isGettingPokemons && <p>loading...</p>}
+        {getPokemonsError && <p>{getPokemonsError}</p>}
+      </div>
     </>
   );
 }
