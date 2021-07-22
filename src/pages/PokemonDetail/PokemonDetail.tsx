@@ -6,7 +6,8 @@ import { getPokemonInfo } from '../../redux/pokemon/pokemon-actions';
 import { pokemonSelector } from '../../redux/pokemon/pokemon-selectors';
 
 export default function PokemonDetails() {
-  const { name } = useParams<{ name: string }>();
+  // default is bulbasur to test it
+  const { name = 'bulbasaur' } = useParams<{ name: string }>();
 
   const dispatch = useDispatch();
 
@@ -27,16 +28,21 @@ export default function PokemonDetails() {
       {getPokemonInfosError && <p>{getPokemonInfosError}</p>}
       {getPokemonInfoSucces && (
         <>
+          <p>hola</p>
+          <img
+            alt={name}
+            src={`https://img.pokemondb.net/sprites/black-white/anim/normal/${name}.gif`}
+          />
+          <p>{name}</p>
           <p>{`ID: ${pokemonInfo.id}`}</p>
-          <p>{`Name: ${pokemonInfo.name}`}</p>
           <p>Types:</p>
           {pokemonInfo.types.map((t: { type: { name: string } }) => (
-            <p>{`-> ${t.type.name}`}</p>
+            <p key={t.type.name}>{t.type.name}</p>
           ))}
           <p>{`Height: ${pokemonInfo.height}`}</p>
           <p>Abilities:</p>
           {pokemonInfo.abilities.map((a: { ability: { name: string } }) => (
-            <p>{`-> ${a.ability.name}`}</p>
+            <p key={a.ability.name}>{a.ability.name}</p>
           ))}
         </>
       )}

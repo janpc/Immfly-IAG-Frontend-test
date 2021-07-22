@@ -22,12 +22,12 @@ describe('Pokemon List Tests', () => {
 
   it('Prints Immfly logo', () => {
     const image = screen.getByAltText('Immfly logo');
-    expect(image).toHaveAttribute('src', '../../img/imfly-logo.png');
+    expect(image).toHaveAttribute('src', 'immfly-logo.png');
   });
 
   it('Prints Pokemon logo', () => {
     const image = screen.getByAltText('Pokemon logo');
-    expect(image).toHaveAttribute('src', '../../img/Pokemon-Logo.png');
+    expect(image).toHaveAttribute('src', 'Pokemon-Logo.png');
   });
 
   it('Pokemon List by Generation have the generation title', async () => {
