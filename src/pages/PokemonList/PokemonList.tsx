@@ -5,6 +5,7 @@ import immflyLogo from '../../img/immfly-logo.png';
 import pokemonLogo from '../../img/Pokemon-Logo.png';
 
 import PokemonListByGeneration from '../../components/PokemonListByGeneration';
+import LoadingSpinner from '../../components/LoadingSpinner';
 
 import { pokemonSelector } from '../../redux/pokemon/pokemon-selectors';
 import {
@@ -40,7 +41,7 @@ export default function PokemonList() {
           <PokemonListByGeneration key={g.number} generation={g} />
         ))}
       <div ref={ref}>
-        {isGettingPokemons && <p>loading...</p>}
+        {isGettingPokemons && <LoadingSpinner />}
         {getPokemonsError && <p>{getPokemonsError}</p>}
       </div>
     </Background>

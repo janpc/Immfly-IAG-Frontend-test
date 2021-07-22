@@ -6,6 +6,11 @@ const ThemeButton = styled.button`
   right: 50px;
   background: none;
   border: none;
+  cursor: pointer;
+  &:focus,
+  &:hover {
+    opacity: 0.5;
+  }
 `;
 
 const ThemeIcon = styled.img`
