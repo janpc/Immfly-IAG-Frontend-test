@@ -1,46 +1,40 @@
-# Getting Started with Create React App
+# Immfly IAG - Frontend test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is my project for the Immfly Frontend Test . It's a simple webpage that list pokemon and show their details.
 
-## Available Scripts
+## Start 🚀
 
-In the project directory, you can run:
+Get a clone of the project in local. You need to have installed nodejs and yarn
+in your computer to develop the proyect.
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Requirements 📋
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+_You need to install nodejs and yarn_
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Instalation 🔧
 
-### `yarn build`
+_First clone the repository_
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+git clone https://github.com/janpc/Immfly-IAG-Frontend-test.git
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+_Then run yarn install in the base folder_
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+yarn install
+```
 
-### `yarn eject`
+_When you have all the denpedencies you can start the project_
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+yarn run start
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Build with 🛠️
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [Yarn](https://classic.yarnpkg.com/en/docs/install/#windows-stable)
+- [ReactJs](https://es.reactjs.org/)

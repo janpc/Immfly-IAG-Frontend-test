@@ -33,7 +33,10 @@ describe('Pokemon Detail Tests', () => {
   });
 
   it('Prints id', async () => {
-    const id = await screen.findByText('ID: 1');
+    const title = await screen.findByText('ID:');
+    expect(title).toBeInTheDocument();
+
+    const id = await screen.findByText('1');
     expect(id).toBeInTheDocument();
   });
 
@@ -49,8 +52,11 @@ describe('Pokemon Detail Tests', () => {
   });
 
   it('Prints Height', async () => {
-    const id = await screen.findByText('Height: 7');
-    expect(id).toBeInTheDocument();
+    const title = await screen.findByText('Height:');
+    expect(title).toBeInTheDocument();
+
+    const height = await screen.findByText('7');
+    expect(height).toBeInTheDocument();
   });
 
   it('Prints Abilities', async () => {
