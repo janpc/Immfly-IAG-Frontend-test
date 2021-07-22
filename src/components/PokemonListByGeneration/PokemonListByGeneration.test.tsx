@@ -5,7 +5,7 @@ import '@testing-library/jest-dom/extend-expect';
 
 import List from './';
 
-describe('Pokemon List Item Tests', () => {
+describe('Pokemon List by Generation Tests', () => {
   const generation = {
     number: 1,
     pokemons: [{ id: 1, name: 'charizard', url: 'aaa.com' }]
