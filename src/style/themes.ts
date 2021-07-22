@@ -1,14 +1,14 @@
 const themes = {
   light: {
-    background: 'light-gray',
+    background: '#ddd',
     main: 'white',
-    emphasis: 'dark-gray',
+    emphasis: 'darkgray',
     text: 'black'
   },
   dark: {
-    background: 'dark-gray',
-    main: 'black',
-    emphasis: 'light-gray',
+    background: '#222',
+    main: '#bbb',
+    emphasis: '#ddd',
     text: 'white'
   }
 };

@@ -6,11 +6,13 @@ import pokemonLogo from '../../img/Pokemon-Logo.png';
 
 import PokemonListByGeneration from '../../components/PokemonListByGeneration';
 
+import { pokemonSelector } from '../../redux/pokemon/pokemon-selectors';
 import {
   getPokemons,
   getPokemonInfoReset
 } from '../../redux/pokemon/pokemon-actions';
-import { pokemonSelector } from '../../redux/pokemon/pokemon-selectors';
+
+import { Background, ImmflyLogo, PokemonLogo } from './style';
 
 export default function PokemonList() {
   const dispatch = useDispatch();
@@ -24,15 +26,15 @@ export default function PokemonList() {
   }, []);
 
   useEffect(() => {
-    if (inView) {
+    if (inView && generation <= 8) {
       dispatch(getPokemons(generation));
     }
   }, [dispatch, inView]);
 
   return (
-    <>
-      <img alt="Immfly logo" src={immflyLogo} width="200px" />
-      <img alt="Pokemon logo" src={pokemonLogo} width="500px" />
+    <Background>
+      <ImmflyLogo alt="Immfly logo" src={immflyLogo} />
+      <PokemonLogo alt="Pokemon logo" src={pokemonLogo} />
       {generations &&
         generations.map((g: { number: number; pokemons: any[] }) => (
           <PokemonListByGeneration key={g.number} generation={g} />
@@ -41,6 +43,6 @@ export default function PokemonList() {
         {isGettingPokemons && <p>loading...</p>}
         {getPokemonsError && <p>{getPokemonsError}</p>}
       </div>
-    </>
+    </Background>
   );
 }
