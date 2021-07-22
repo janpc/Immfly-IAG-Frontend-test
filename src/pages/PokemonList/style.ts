@@ -24,7 +24,7 @@ const ImmflyLogo = styled.img`
 `;
 
 const PokemonLogo = styled.img`
-  width: 400px;
+  width: min(400px, 90vw);
   aspect-ratio: 5 / 2;
   object-fit: cover;
 `;

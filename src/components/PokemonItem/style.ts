@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   display: flex;
-  width: 300px;
+  width: min(300px, 90vw);
   box-sizing: border-box;
   border: 1px solid ${({ theme }) => theme.text};
   flex-direction: column;

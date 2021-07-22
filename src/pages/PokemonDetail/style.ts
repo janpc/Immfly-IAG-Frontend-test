@@ -20,7 +20,7 @@ const Background = styled.main`
 `;
 
 const Container = styled.div`
-  width: 300px;
+  width: min(300px, 90vw);
   position: relative;
   background-color: ${(props) => props.theme.main};
   border: 1px solid ${(props) => props.theme.text};
@@ -30,6 +30,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
+  box-sizing: border-box;
 `;
 
 const PokemonImage = styled.img`

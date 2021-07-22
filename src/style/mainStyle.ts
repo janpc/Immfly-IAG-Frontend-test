@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 const ThemeButton = styled.button`
   position: fixed;
-  top: 50px;
-  right: 50px;
+  top: min(50px, 5vw);
+  right: min(50px, 5vw);
   background: none;
   border: none;
   cursor: pointer;
@@ -14,7 +14,7 @@ const ThemeButton = styled.button`
 `;
 
 const ThemeIcon = styled.img`
-  width: 50px;
+  width: min(50px, 10vw);
   aspect-ratio: 1/1;
   color: ${({ theme }) => theme.text};
 `;
